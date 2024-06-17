@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>  
+
+    <title>Biblioteca - Reserva de Libros</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    
+</head>
+<body>
+    
+    <header>
+        <h1> Catalogo Biblioteca iWise </h1>
+        <img src="imagen.png" alt="Imagen" id="logo">
+    </header>
+    <main>
+        <section id="search">
+            <h2>Buscar Libros</h2>
+            <div id="search-options">
+                <select id="search-option">
+                    <option value="" disabled selected hidden>Buscar por...</option>
+                    <option value="autor">Autor(es)</option>
+                    <option value="titulo">Título</option>
+                    <option value="traductor">Traductor/Prologuista/Compilador</option>
+                    <option value="ciudad">Ciudad de publicación</option>
+                    <option value="editorial">Editorial</option>
+                    <option value="anio">Año de publicación</option>
+                    <option value="edicion">Número de edición</option>
+                    <option value="paginas">Número de páginas</option>
+                    <option value="idioma">Idioma</option>
+                </select>
+                <input type="text" id="search-input" placeholder="Ingrese su búsqueda...">
+                <button onclick="filtrarLibros()">Filtrar</button>
+            </div>
+        </section>
+        <section id="book-list">
+            <h2>Libros Disponibles</h2>
+            <table id="books-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Autor(es)</th>
+                        <th>Título</th>
+                        <th>Traductor/Prologuista/Compilador</th>
+                        <th>Ciudad de publicación</th>
+                        <th>Editorial</th>
+                        <th>Año de publicación</th>
+                        <th>Número de edición</th>
+                        <th>Número de páginas</th>
+                        <th>Idioma</th>
+                        <th># de libros</th>
+                        <th>Reserved</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Soto, Belen</td>
+                        <td>Mujer Power</td>
+                        <td> </td>
+                        <td>Ciudad de México</td>
+                        <td>Penguin Random House</td>
+                        <td>2023</td>
+                        <td>1ra en México</td>
+                        <td>409</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Soto, Belen</td>
+                        <td>Mujer Power</td>
+                        <td> </td>
+                        <td>Ciudad de México</td>
+                        <td>Penguin Random House</td>
+                        <td>2023</td>
+                        <td>1ra en México</td>
+                        <td>409</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Ana, Ibañez</td>
+                        <td>Sorprende a tu mente</td>
+                        <td> </td>
+                        <td>Ciudad de México</td>
+                        <td>Planeta Mexicana</td>
+                        <td>2024</td>
+                        <td>1ra en México</td>
+                        <td>301</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Martin, Lauren</td>
+                        <td>The book of moods</td>
+                        <td> </td>
+                        <td>Nueva York</td>
+                        <td>Grand Central Publishing</td>
+                        <td>2020</td>
+                        <td>1ra edicion</td>
+                        <td>256</td>
+                        <td>Inglés</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Holiday, Ryan</td>
+                        <td>El obstáculo es el camino</td>
+                        <td>Enrique Mercado</td>
+                        <td>Estado de México</td>
+                        <td>Océano de México</td>
+                        <td>2023</td>
+                        <td>8va reimpresión</td>
+                        <td>211</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Catmull, Ed</td>
+                        <td>Creatividad, S.A. Cómo llevar la inspiración hasta el infinito y más allá</td>
+                        <td>Javier Fernández de Castro</td>
+                        <td>Ciudad de México</td>
+                        <td>Penguin Random House</td>
+                        <td>2022</td>
+                        <td>9na reimpresión</td>
+                        <td>362</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Pierpont, Julia</td>
+                        <td>El pequeño libro de las grandes feministas</td>
+                        <td>Ana Bello</td>
+                        <td>Ciudad de México</td>
+                        <td>Penguin Random House</td>
+                        <td>2019</td>
+                        <td>2da</td>
+                        <td>189</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Lazo, Marisa</td>
+                        <td>La ambición también es dulce</td>
+                        <td>NA</td>
+                        <td>Ciudad de México</td>
+                        <td>Grijalbo</td>
+                        <td>2022</td>
+                        <td>2da</td>
+                        <td>239</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Goleman, Daniel</td>
+                        <td>Inteligencia Emocional - Resilencia</td>
+                        <td>Begoña Merino Gómez</td>
+                        <td>Barcelona</td>
+                        <td>Reverté</td>
+                        <td>2022</td>
+                        <td>12va impresión</td>
+                        <td>138</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Parrish, Shane</td>
+                        <td>Pensar con Claridad</td>
+                        <td> </td>
+                        <td>Ciudad de México</td>
+                        <td>Planeta Mexicana</td>
+                        <td>2024</td>
+                        <td>1ra en México</td>
+                        <td>319</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Macias, Sofia</td>
+                        <td>Pequeño Cerdo Capitalista</td>
+                        <td>NA</td>
+                        <td>Ciudad de México</td>
+                        <td>Aguilar</td>
+                        <td>2023</td>
+                        <td>5ta</td>
+                        <td>292</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Moss, Jennifer</td>
+                        <td>Cómo Superar el Burnout</td>
+                        <td>Irene Muñoz Serulla</td>
+                        <td>Barcelona</td>
+                        <td>Reverté</td>
+                        <td>2021</td>
+                        <td>3ra</td>
+                        <td>243</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Sommer, Iris</td>
+                        <td>El Cerebro de la mujer</td>
+                        <td>NA</td>
+                        <td>Barcelona</td>
+                        <td>Amat</td>
+                        <td>2022</td>
+                        <td>1ra</td>
+                        <td>199</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Sibomy, Olivier</td>
+                        <td>You are about to make a terrible mistake</td>
+                        <td>Kate Deimling</td>
+                        <td>Nueva York</td>
+                        <td>Little, Brown Spark</td>
+                        <td>2019</td>
+                        <td>1ra</td>
+                        <td>288</td>
+                        <td>Inglés</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Coleman, Daniel/Cherniss, Cary</td>
+                        <td>Optimal Cómo Alcanzar la excelencia personal y laboral todos los dias</td>
+                        <td>Alejandra Ramon Calderón</td>
+                        <td>Ciudad de México</td>
+                        <td>Penguin Random House</td>
+                        <td>2024</td>
+                        <td>1ra</td>
+                        <td>318</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>Allen, David</td>
+                        <td>Organízate con Eficacia</td>
+                        <td>Martín Rodríguez Courel</td>
+                        <td>Ciudad de México</td>
+                        <td>Penguin Books</td>
+                        <td>2024</td>
+                        <td>1ra en México</td>
+                        <td>336</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>Domingo, Carlos</td>
+                        <td>Bitcoin, criptomonedas y blockchain</td>
+                        <td>Juan María Nin Genova</td>
+                        <td>Ciudad de México</td>
+                        <td>Ediciones Culturales Paidos</td>
+                        <td>2024</td>
+                        <td>1ra en México</td>
+                        <td>216</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>Colmenares, Ana Vásquez</td>
+                        <td>¿Feminista yo?</td>
+                        <td> </td>
+                        <td>Ciudad de México</td>
+                        <td>Penguin Random House</td>
+                        <td>2023</td>
+                        <td>1ra en México</td>
+                        <td>423</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>De Leon, Paco</td>
+                        <td>Finanzas para todos</td>
+                        <td>Karina Simpson</td>
+                        <td>Estado de México</td>
+                        <td>Océano de México</td>
+                        <td>2022</td>
+                        <td>1ra</td>
+                        <td>355</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>Cope, Kevin</td>
+                        <td>Seeing the Big Picture</td>
+                        <td>NA</td>
+                        <td>Estados Unidos</td>
+                        <td>Greenleaf Book Group Press</td>
+                        <td>2012</td>
+                        <td>1ra</td>
+                        <td>176</td>
+                        <td>Inglés</td>
+                        <td>2</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>Munson, Richard</td>
+                        <td>Tesla</td>
+                        <td>Sergio Lledó Rando</td>
+                        <td>Ciudad de México</td>
+                        <td>Indicios</td>
+                        <td>2019</td>
+                        <td>1ra</td>
+                        <td>332</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>21</td>
+                        <td>Clint, Pulver</td>
+                        <td>El secreto del liderazgo</td>
+                        <td> </td>
+                        <td>Ciudad de México</td>
+                        <td>VR Editoras</td>
+                        <td>2022</td>
+                        <td>1ra</td>
+                        <td>310</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>22</td>
+                        <td>Chambers, John</td>
+                        <td>Connecting the dots</td>
+                        <td>NA</td>
+                        <td>Nueva York</td>
+                        <td>Hachette</td>
+                        <td>2018</td>
+                        <td>1ra</td>
+                        <td>300</td>
+                        <td>Inglés</td>
+                        <td>5</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>23</td>
+                        <td>Lencioni, Patrick</td>
+                        <td>Las 5 disfunciones de un equipo</td>
+                        <td>Oscar Luis Molina Serralta</td>
+                        <td>Ciudad de México</td>
+                        <td>Ediciones Urano México</td>
+                        <td>2022</td>
+                        <td>1ra</td>
+                        <td>214</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>24</td>
+                        <td>Caspersen, Dana</td>
+                        <td>Conversación Asertiva</td>
+                        <td>NA</td>
+                        <td>Buenos Aires</td>
+                        <td>VR Editoras</td>
+                        <td>2023</td>
+                        <td>1ra</td>
+                        <td>263</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>25</td>
+                        <td>Ayub, Arturo Elias</td>
+                        <td>El Negociador</td>
+                        <td> </td>
+                        <td>Ciudad de México</td>
+                        <td>Penguin Random House</td>
+                        <td>2023</td>
+                        <td>22da</td>
+                        <td>190</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>26</td>
+                        <td>Ortiz Barraza, Adriana</td>
+                        <td>Mujeres Imparables</td>
+                        <td>NA</td>
+                        <td>Buenos Aires</td>
+                        <td>VR Editoras</td>
+                        <td>2023</td>
+                        <td>1ra</td>
+                        <td>179</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>27</td>
+                        <td>Obama, Michelle</td>
+                        <td>Becoming</td>
+                        <td> </td>
+                        <td>Nueva York</td>
+                        <td>Penguin Random House</td>
+                        <td>2022</td>
+                        <td>13va</td>
+                        <td>518</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>28</td>
+                        <td>Sinek, Simon</td>
+                        <td>Los líderes comen al final</td>
+                        <td>Daniel Menezo García</td>
+                        <td>Ciudad de México</td>
+                        <td>VR Editoras</td>
+                        <td>2022</td>
+                        <td>1ra</td>
+                        <td>341</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>29</td>
+                        <td>Mason, James</td>
+                        <td>Alcance Su Potencial</td>
+                        <td>NA</td>
+                        <td>Ciudad de México</td>
+                        <td>McGraw-Hill Interamericana</td>
+                        <td>2022</td>
+                        <td>1ra</td>
+                        <td>240</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>30</td>
+                        <td>Tomada, Juan Carlos</td>
+                        <td>Conciencia del uso del tiempo</td>
+                        <td>NA</td>
+                        <td>Ciudad de México</td>
+                        <td>Océano de México</td>
+                        <td>2023</td>
+                        <td>1ra</td>
+                        <td>271</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>31</td>
+                        <td>Wright, Ronald</td>
+                        <td>Breve historia del progreso</td>
+                        <td>NA</td>
+                        <td>Ciudad de México</td>
+                        <td>Océano de México</td>
+                        <td>2023</td>
+                        <td>1ra</td>
+                        <td>377</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>32</td>
+                        <td>Prieto, Renata</td>
+                        <td>Mi historia</td>
+                        <td> </td>
+                        <td>Estado de México</td>
+                        <td>Océano de México</td>
+                        <td>2021</td>
+                        <td>1ra</td>
+                        <td>280</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>33</td>
+                        <td>Martins, Jacqueline</td>
+                        <td>Los capullos no se dan flor</td>
+                        <td> </td>
+                        <td>Ciudad de México</td>
+                        <td>Penguin Random House</td>
+                        <td>2023</td>
+                        <td>1ra en México</td>
+                        <td>425</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>34</td>
+                        <td>García, Julia</td>
+                        <td>Mujer inquebrantable</td>
+                        <td> </td>
+                        <td>Estado de México</td>
+                        <td>Océano de México</td>
+                        <td>2022</td>
+                        <td>1ra</td>
+                        <td>281</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>35</td>
+                        <td>Handy, Charles</td>
+                        <td>El vacio en el poder</td>
+                        <td> </td>
+                        <td>Ciudad de México</td>
+                        <td>Harvard</td>
+                        <td>2021</td>
+                        <td>2da</td>
+                        <td>344</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>36</td>
+                        <td>Smith, Dorie</td>
+                        <td>Liderazgo gradual</td>
+                        <td> </td>
+                        <td>Ciudad de México</td>
+                        <td>McGraw Hill</td>
+                        <td>2023</td>
+                        <td>1ra</td>
+                        <td>344</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>37</td>
+                        <td>Smith, Charlene</td>
+                        <td>Estás hablando solo</td>
+                        <td> </td>
+                        <td>Ciudad de México</td>
+                        <td>McGraw Hill</td>
+                        <td>2023</td>
+                        <td>1ra</td>
+                        <td>371</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>38</td>
+                        <td>Sanchez, Angélica</td>
+                        <td>Creatividad</td>
+                        <td> </td>
+                        <td>Barcelona</td>
+                        <td>Parramón</td>
+                        <td>2019</td>
+                        <td>1ra</td>
+                        <td>127</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>39</td>
+                        <td>Porter, Richard</td>
+                        <td>5 fuerzas de porter</td>
+                        <td> </td>
+                        <td>Ciudad de México</td>
+                        <td>Harvard</td>
+                        <td>2021</td>
+                        <td>1ra</td>
+                        <td>196</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>40</td>
+                        <td>Porter, Michael</td>
+                        <td>Ventaja competitiva</td>
+                        <td> </td>
+                        <td>Estado de México</td>
+                        <td>Océano de México</td>
+                        <td>2023</td>
+                        <td>1ra</td>
+                        <td>249</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td>41</td>
+                        <td>Echkart Tolle</td>
+                        <td>El poder del Ahora</td>
+                        <td>Margarita Matarranz</td>
+                        <td>Ciudad de México</td>
+                        <td>Penguin Random House</td>
+                        <td>2023</td>
+                        <td>38va</td>
+                        <td>255</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>42</td>
+                        <td>Dandapani</td>
+                        <td>El Poder de la Concentración Absoluta</td>
+                        <td>Victoria Simo</td>
+                        <td>Barcelona</td>
+                        <td>Planeta Mexicana</td>
+                        <td>363</td>
+                        <td>1ra</td>
+                        <td>363</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>43</td>
+                        <td>Eger, Edith</td>
+                        <td>La bailarina de Auschwitz</td>
+                        <td></td>
+                        <td>Ciudad de México</td>
+                        <td>Planeta Mexicana</td>
+                        <td>2018</td>
+                        <td>1ra edicion</td>
+                        <td>412</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>44</td>
+                        <td>De Lucía, Daniela</td>
+                        <td>Estás para más</td>
+                        <td></td>
+                        <td>Ciudad de México</td>
+                        <td>El ateneo</td>
+                        <td>2023</td>
+                        <td>1ra Edicion</td>
+                        <td>375</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>45</td>
+                        <td>Tolle, Echkart</td>
+                        <td>El poder del Ahora</td>
+                        <td>Margarita Matarranz</td>
+                        <td>Ciudad de México</td>
+                        <td>Penguin Random House</td>
+                        <td>2024</td>
+                        <td>40va</td>
+                        <td>255</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>46</td>
+                        <td>Gostick, Adrian/Elton, Chester</td>
+                        <td>Lidera con Gratitud</td>
+                        <td>Rebeca Vazquez</td>
+                        <td>Ciudad de México</td>
+                        <td>VR Editoras</td>
+                        <td>2023</td>
+                        <td>1ra</td>
+                        <td>298</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>47</td>
+                        <td>Coleman, Daniel</td>
+                        <td>La Inteligencia Emocional</td>
+                        <td>NA</td>
+                        <td>Ciudad de México</td>
+                        <td>Penguin Random House</td>
+                        <td>2023</td>
+                        <td>11va</td>
+                        <td>397</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>48</td>
+                        <td>Sinek, Simon</td>
+                        <td>El Juego Infinito</td>
+                        <td>Marta García Madera</td>
+                        <td>Ciudad de México</td>
+                        <td>Ediciones urano México</td>
+                        <td>2021</td>
+                        <td>1ra</td>
+                        <td>283</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>49</td>
+                        <td>Korobkin, Russell</td>
+                        <td>El negociador de las 5 herramientas</td>
+                        <td>Juan Manuel Landeros</td>
+                        <td>Ciudad de México</td>
+                        <td>VR Editoras</td>
+                        <td>2023</td>
+                        <td>1ra</td>
+                        <td>380</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>50</td>
+                        <td>Clear, James</td>
+                        <td>Hábitos Atómicos</td>
+                        <td>Gabriela Moya</td>
+                        <td>Barcelona</td>
+                        <td>Paidós</td>
+                        <td>2019</td>
+                        <td>1ra edicion</td>
+                        <td>325</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>51</td>
+                        <td>Sharma, Robin</td>
+                        <td>El líder que no tenía cargo</td>
+                        <td>Sonia Tapia</td>
+                        <td>Ciudad de México</td>
+                        <td>Penguin Random House</td>
+                        <td>2024</td>
+                        <td>24va</td>
+                        <td>264</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>52</td>
+                        <td>Carnegie, Dale</td>
+                        <td>Cómo ganar amigos e influir sobre las personas</td>
+                        <td></td>
+                        <td>Ciudad de México</td>
+                        <td>Penguin Random House</td>
+                        <td>2023</td>
+                        <td>16ta</td>
+                        <td>292</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>53</td>
+                        <td>Atwood, Margaret</td>
+                        <td>El cuento de la criada</td>
+                        <td>Elsa Mateo Blanco</td>
+                        <td>Ciudad de México</td>
+                        <td>Narrativa Salamandra</td>
+                        <td>2020</td>
+                        <td>1ra en México</td>
+                        <td>412</td>
+                        <td>Español</td>
+                        <td>1</td>
+                        <td><button onclick="location.href='reservar.html';">Reservar</button></td>
+                    </tr>                    
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>

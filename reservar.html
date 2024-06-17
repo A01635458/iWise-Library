@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar Libro</title>
+    
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        input[type="email"] {
+            width: 100%;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            box-sizing: border-box;
+        }
+        
+        button.active {
+            background-color: #19266A;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <header>
+        <h1>Reservar Libro</h1>
+        <img src="imagen.png" alt="Imagen" id="logo">
+    </header>
+    <main>
+        <section id="reserva-options">
+            <h2>Selecciona la duración de la reserva:</h2>
+            <button id="btn-semana" onclick="seleccionarOpcion('btn-semana', 7)">Una semana</button>
+            <button id="btn-mes" onclick="seleccionarOpcion('btn-mes', 30)">Un mes</button>
+            <button id="btn-dos-meses" onclick="seleccionarOpcion('btn-dos-meses', 60)">Dos meses</button>
+        </section>
+        <section id="fecha-reserva">
+            <h2>Fecha límite de reserva:</h2>
+            <p id="fecha-limite"></p>
+        </section>
+        
+        <!-- poner correo (necesito poder guardalo en una base de datos o algo)
+              (luego pensar cono hacerle para que te mande un correo a ti con la info de tu reserva)-->
+        <section id="correo-section">
+            <h2>Ingresa tu correo electrónico:</h2>
+            <input type="email" id="correo-input" placeholder="correo@cisco.com">
+        </section>
+    </main>
+
+    <footer>
+        <button id="confirmar-btn" onclick="confirmarReservacion()">Confirmar Reservación</button>
+        <button id="regresar-btn" onclick="location.href='index.html';">Regresar a la página principal</button>
+    </footer>
+
+    <script>
+        function seleccionarOpcion(idBoton, dias) {
+            var botones = document.querySelectorAll('#reserva-options button');
+            botones.forEach(function(boton) {
+                boton.classList.remove('active');
+            });
+            
+  
+            document.getElementById(idBoton).classList.add('active');
+            
+            // fecha límite d la reserva
+            var hoy = new Date();
+            var fechaLimite = new Date(hoy.getTime() + dias * 24 * 60 * 60 * 1000);
+            var dia = fechaLimite.getDate();
+            var mes = fechaLimite.getMonth() + 1;
+            var anoxd = fechaLimite.getFullYear();
+            document.getElementById("fecha-limite").innerHTML = "Tu reserva será válida hasta el " + dia + "/" + mes + "/" + anoxd;
+        }
+        
+        function confirmarReservacion() {
+            // el aviso al final
+            var correo = document.getElementById("correo-input").value;
+            var duracion = document.querySelector('#reserva-options button.active').textContent;
+            var fechaLimite = document.getElementById("fecha-limite").textContent;
+            
+            // Ejemplo de alerta de confirmación
+            alert(`Reservación confirmada!\n\nCorreo: ${correo}\nDuración: ${duracion}\nFecha límite: ${fechaLimite}\n\nCopia de la informacion fue mandada al correo proporcionado\n\nGracias!`);
+        }
+    </script>
+</body>
+</html>
+
+
+
+<!-- 
+    hacer link de github
+    hacer flexbox (modificar tamaño dependiendo del tab size)
+    hacer q funcione el filtro
+    el boton de reservar se vuelva no disponible y no te deje picar
+    que baje el numero de libros si es 0 poner no disponible else seguir reservando
+    boton de regresar libro, para que marque como disponible otra vez
+    ingresar aparte de correo de cisco, nombre, telefono 
+
+    marcar errores y no dejar reservar hasta que se arreglen
+
+lista de correos de los admin
+log in con el correo y contraseña
+    contrseña misma para todos los admins o dif o lo que sea
+opcion que solo admin pueda 
+    agregar libros 
+    borrar 
+    ver quien reservo, sus datos, y sacar reportes de las reservas actuales o status de libros 
+
+
+si no lo entregan mandar mas correos hasta que confirmen(?)
+
+
+-->
